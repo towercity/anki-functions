@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <CardSide word={word} onChange={() => console.log('input word has change')} />
-      <ResultSide />
+      <ResultSide word={word} />
     </div>
   )
 }
