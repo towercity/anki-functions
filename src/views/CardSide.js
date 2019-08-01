@@ -10,7 +10,7 @@ const WordEntryBox = ({ word, onChange }) => {
     return (
         <div id="word-entry-box">
             <h2>Word</h2>
-            <Input onChange={onChange} />
+            <Input text={word} onChange={onChange} />
             <Button text="submit" onClick={() => console.log('submit ', word)} />
         </div>
     )
@@ -37,3 +37,5 @@ const CardSide = ({ word, onChange }) => {
         </div>
     )
 }
+
+export default CardSide;
