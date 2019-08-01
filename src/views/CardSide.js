@@ -23,7 +23,7 @@ const DefinitionBox = ({ word }) => {
     return (
         <div id="definition-box">
             <h2>Definition</h2>
-            <Textbox text={definition} onChange={() => console.log(definition)} />
+            <Textbox text={definition} handleChange={() => console.log(definition)} />
             <p className="attr-text">Definition provided by Jisho.org</p>
         </div>
     )
