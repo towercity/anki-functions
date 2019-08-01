@@ -2,7 +2,6 @@ import React from 'react';
 
 import Input from '../components/Input';
 import Button from '../components/Button';
-import Textbox from '../components/Textbox';
 
 const WordEntryBox = ({ word, onChange, search }) => {
     // TODO: have submit button call APIs, etc
@@ -20,8 +19,8 @@ const WordEntryBox = ({ word, onChange, search }) => {
 const DefinitionBox = ({ definition }) => {
     return (
         <div id="definition-box">
-            <h2>Definition</h2>
-            <p>{definition}</p>
+            <h2>{definition.term}</h2>
+            <p>{definition.definition}</p>
             <p className="attr-text">Definition provided by Jisho.org</p>
         </div>
     )

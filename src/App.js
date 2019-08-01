@@ -4,11 +4,13 @@ import jishoApi from 'unofficial-jisho-api';
 import './App.css';
 import CardSide from './views/CardSide';
 import ResultSide from './views/ResultSide';
-import { setServers } from 'dns';
 
 function App() {
   const [word, setWord] = useState('言葉');
-  const [definition, setDefinition] = useState('');
+  const [definition, setDefinition] = useState({
+    term: 'Definition',
+    definition: 'Please search for a Japanese term above'
+  });
 
   const jisho = new jishoApi();
 
@@ -22,8 +24,11 @@ function App() {
       // Join the sub-definitions into one long string
       const definitionBuild = subdefs.join('; ');
 
-      console.log(res.data[0]);
-      setDefinition(definitionBuild);
+      setDefinition({
+        // Slug is the quickest way to access the unique term jisho is looking up
+        term: res.data[0].slug,
+        definition: definitionBuild
+      });
     });
   }
 
