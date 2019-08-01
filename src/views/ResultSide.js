@@ -1,5 +1,25 @@
 import React from 'react';
-import Textbox from './components/Textbox'
+import Input from '../components/Input';
+import Button from '../components/Button';
+import Textbox from '../components/Textbox';
+
+const SentenceResult = ({ sentence, idx }) => {
+    let link = 'link';
+    // TODO: save the twitter source here
+
+    return(
+        <div id="sentence-result">
+            <h2>Sentence</h2>
+            <Textbox text={sentence} handleChange={() => console.log('this neednt change tho')} />
+            <p className="attr-text"><a href={link}>sentence source</a></p>
+            <div id="sent-change-buttons">
+                <Button onClick={() => console.log('go back')} text="<" />
+                <Input text={idx} onChange={() => console.log('update the idx')} />
+                <Button onClick={() => console.log('go fwd')} text=">" />
+            </div>
+        </div>
+    )
+}
 
 const TranslationResult = ({ sentence }) => {
     let translation = sentence + "_trans";
@@ -9,18 +29,20 @@ const TranslationResult = ({ sentence }) => {
         <div id="translation-result">
             <h2>Translation</h2>
             <Textbox text={translation} handleChange={() => console.log('this neednt change tho')} />
-            <p class="attr-text">Translation provided by Google</p>
+            <p className="attr-text">Translation provided by Google</p>
         </div>
     )
 }
 
 const ResultSide = ({ word }) => {
-    let sentence = word + "_sent";
+    let sentences = [word + "_sent", "2nd sentence"];
+    let idx = 0;
+    // TODO: gather the twitter sentences here
 
     return (
         <div id="result-side">
-            <SentenceResult />
-            <TranslationResult />
+            <SentenceResult sentence={sentences[idx]} idx={idx} />
+            <TranslationResult sentence={sentences[idx]} />
         </div>
     )
 }

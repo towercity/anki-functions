@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CardSide from './views/CardSide';
 import ResultSide from './views/ResultSide';
