@@ -32,10 +32,12 @@ function App() {
     });
   }
 
+  const selectWord = () => {
+    console.log(definition.term);
+  }
+
   const handleWordChange = (e) => {
     setWord(e.target.value);
-
-    console.log('word', word);
   }
 
   return (
@@ -45,8 +47,12 @@ function App() {
         definition={definition} 
         onChange={(e) => handleWordChange(e)} 
         search={() => findDefinition()} 
+        select={() => selectWord()}
       />
-      <ResultSide word={word} />
+      <ResultSide 
+        // Uses definition.term for the word so as to match the definition shown rather than the search term
+        word={definition.term} 
+      />
     </div>
   )
 }

@@ -16,21 +16,22 @@ const WordEntryBox = ({ word, onChange, search }) => {
     )
 }
 
-const DefinitionBox = ({ definition }) => {
+const DefinitionBox = ({ definition, select }) => {
     return (
         <div id="definition-box">
             <h2>{definition.term}</h2>
             <p>{definition.definition}</p>
             <p className="attr-text">Definition provided by Jisho.org</p>
+            <Button text="select" onClick={select} />
         </div>
     )
 }
 
-const CardSide = ({ word, onChange, definition, search }) => {
+const CardSide = ({ word, onChange, definition, search, select }) => {
     return (
         <div id="card-side">
             <WordEntryBox word={word} onChange={onChange} search={search} />
-            <DefinitionBox definition={definition} />
+            <DefinitionBox definition={definition} select={select} />
         </div>
     )
 }
