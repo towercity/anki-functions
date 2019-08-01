@@ -1,9 +1,15 @@
 import React from 'react';
 
 const Textbox = ({ text, handleChange }) => {
-    return (
-        <textarea onChange={handleChange} defaultValue={text}></textarea>
-    )
+    if (handleChange) {
+        return (
+            <textarea defaultValue={text} onChange={handleChange} />
+        )
+    } else {
+        return (
+            <textarea defaultValue={text} readOnly />
+        )
+    }
 }
 
 export default Textbox;
