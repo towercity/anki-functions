@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import jishoApi from 'unofficial-jisho-api';
+import Twitter from 'twitter';
 
 import './App.css';
 import CardSide from './views/CardSide';
@@ -13,6 +14,12 @@ function App() {
   });
 
   const jisho = new jishoApi();
+  const client = new Twitter({
+    consumer_key: 'R3mMHJr8LOZMyEUHnAg7BI3Dm',
+    consumer_secret: 'nPmyjFXtaffX8poS748O4uruLZnGIA35JBkqbOj4cFhTe9anOe',
+    access_token_key: '1037786518566383617-RwfGq0SUjm8PldxlihhYvgf1c5CkhZ',
+    access_token_secret: 'JvEEDsJD5rQ93s7r3BtvFNIjez3Ogxbqyic3zhzPsukdA'
+  })
 
   const findDefinition = () => {
     jisho.searchForPhrase(word).then(res => {
@@ -34,6 +41,12 @@ function App() {
 
   const selectWord = () => {
     console.log(definition.term);
+
+    client.get('search/tweets', {
+      q: definition.term
+    }, (err, tweets, res) => {
+      console.log(err, tweets, res);
+    })
   }
 
   const handleWordChange = (e) => {
