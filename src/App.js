@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div>
-      <CardSide word={word} />
+      <CardSide word={word} onChange={()) => console.log('input word has change')} />
       <ResultSide />
     </div>
   )

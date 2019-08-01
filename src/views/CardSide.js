@@ -1,5 +1,20 @@
 import React from 'react';
+import Input from './Input';
+import Button from './Button';
 import Textbox from './Textbox';
+
+const WordEntryBox = ({ word, onChange }) => {
+    // TODO: have submit button call APIs, etc
+    // MAYBE: onChange calls defintion call
+
+    return (
+        <div id="word-entry-box">
+            <h2>Word</h2>
+            <Input onChange={onChange} />
+            <Button text="submit" onClick={() => console.log('submit ', word)} />
+        </div>
+    )
+}
 
 const DefinitionBox = ({ word }) => {
     let definition = word + '_def';
@@ -14,10 +29,10 @@ const DefinitionBox = ({ word }) => {
     )
 }
 
-const CardSide = ({ word }) => {
+const CardSide = ({ word, onChange }) => {
     return (
         <div id="card-side">
-            <WordEntryBox />
+            <WordEntryBox word={word} onChange={onChange} />
             <DefinitionBox word={word} />
         </div>
     )
