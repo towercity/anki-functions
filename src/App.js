@@ -7,13 +7,13 @@ import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
 
-function App() {
-  const [word, setWord] = useState('言葉');
-  const [definition, setDefinition] = useState({
+const defaults = {
+  word: '言葉',
+  definition: {
     term: 'Definition',
     definition: 'Please search for a Japanese term above'
-  });
-  const [notes, setNotes] = useState([{
+  },
+  notes: [{
     fields: {
       Sentence: {
         value: ''
@@ -26,11 +26,22 @@ function App() {
       }
     },
     tags: ['']
-  }]);
+  }]
+}
+
+function App() {
+  const [word, setWord] = useState(defaults.word);
+  const [definition, setDefinition] = useState(defaults.definition);
+  const [notes, setNotes] = useState(defaults.notes);
   const [notesIdx, setNotesIdx] = useState(0);
 
   const jisho = new jishoApi();
 
+  const resetDefaults = () => {
+    setWord(defaults.word);
+    setDefinition(defaults.definition);
+    setNotes(defaults.notes);
+  }
 
   const findDefinition = () => {
     jisho.searchForPhrase(word).then(res => {
@@ -65,11 +76,7 @@ function App() {
         }
 
         if(hasNotes) {
-          setWord('言葉');
-          setDefinition({
-            term: 'Definition',
-            definition: 'Please search for a Japanese term above'
-          });
+          resetDefaults();
           return;
         }
 
@@ -125,6 +132,7 @@ function App() {
         onChange={(e) => handleWordChange(e)} 
         search={() => findDefinition()} 
         select={() => selectWord()}
+        reset={() => resetDefaults()}
       />
       <ResultSide 
         notes={notes} 
