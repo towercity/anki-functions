@@ -24,7 +24,8 @@ function App() {
       Image: {
         value: ''
       }
-    }
+    },
+    tags: ['']
   }]);
   const [notesIdx, setNotesIdx] = useState(0);
 
