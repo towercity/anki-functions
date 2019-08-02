@@ -50,6 +50,9 @@ function App() {
   const selectWord = () => {
     const Anki = 'http://127.0.0.1:8765';
 
+    //Return the index to 0
+    setNotesIdx(0);
+
     // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
     // saves an array of them to state as 
     axios
