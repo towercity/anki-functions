@@ -1,26 +1,40 @@
+body {
+  background: lightgrey;
+}
+
+input {
+  border-radius: 5px;
+  padding: 1px 3px;
+}
+
 #word-entry-box,
 #definition-box,
 #search-side,
 #result-side {
-  display: inline-block;
-  height: 100%;
+  float: left;
+  height: 100vh;
 }
 
 #search-side {
-  width: calc(40% - 30px);
-  background-color: red;
-  padding: 15px;
+  width: calc(50% - 30px);
+  background-color: grey;
+  padding: 0 15px;
 }
 
 #result-side {
-  width: calc(60% - 30px);
-  padding: 15px;
+  width: calc(50% - 30px);
+  padding: 0 15px;
 }
 
 #word-entry-box {
-  width: 30%;
+  width: 33%;
 }
 
 #definition-box {
-  width: 60%;
+  width: 66%;
+}
+
+.tags,
+.attr-text {
+  font-size: 0.66em;
 }

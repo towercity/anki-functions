@@ -11,6 +11,7 @@ const WordEntryBox = ({ word, onChange, search }) => {
         <div id="word-entry-box">
             <h2>Word</h2>
             <Input text={word} onChange={onChange} />
+            <br />
             <Button text="search" onClick={search} />
         </div>
     )

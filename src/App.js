@@ -56,6 +56,29 @@ function App() {
     //Return the index to 0
     setNotesIdx(0);
 
+    // TODO: externalize this axios logic
+
+    axios
+      .post(Anki, {
+        "action": "findNotes",
+        "version": 6,
+        "params": {
+          "query": "Vocabulary:" + definition.term
+        }
+      }).then(res => {
+        let hasNotes = res.data.result.length;
+        // If the note does exist in the database
+        if (hasNotes) {
+          hasNotes = window.confirm(`${definition.term} already exists. Continue?`);
+        }
+
+        if(hasNotes) {
+          console.log('has notes: abort');
+        } else {
+          console.log('no notes, continue');
+        }
+        
+      })
     // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
     // saves an array of them to state as 
     axios
