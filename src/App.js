@@ -16,7 +16,10 @@ function App() {
   const [notes, setNotes] = useState([{
     fields: {
       Sentence: {
-        value: 'test'
+        value: 'JPN'
+      },
+      English: {
+        value: 'ENG'
       }
     }
   }]);
