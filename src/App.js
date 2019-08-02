@@ -73,7 +73,7 @@ function App() {
         }
 
         if(hasNotes) {
-          setWord('');
+          setWord('言葉');
           setDefinition({
             term: 'Definition',
             definition: 'Please search for a Japanese term above'
