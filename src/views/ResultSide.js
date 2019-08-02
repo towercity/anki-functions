@@ -31,7 +31,9 @@ const TranslationResult = ({ sentence }) => {
     )
 }
 
-const ResultSide = ({ sentence }) => {
+const ResultSide = ({ notes }) => {
+    let sentence = notes[0].fields.Sentence.value;
+
     return (
         <div id="result-side">
             <SentenceResult sentence={sentence} />

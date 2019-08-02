@@ -85,7 +85,7 @@ function App() {
         select={() => selectWord()}
       />
       <ResultSide 
-        sentence={notes[0].fields.Sentence.value} 
+        notes={notes} 
       />
     </div>
   )
