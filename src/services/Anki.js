@@ -16,12 +16,21 @@ const Anki = {
     },
 
     // Searches for notes
-    // Takes in a search string and a callback function
+    // Takes in a search string 
     // Returns array of note ids
     findNote: (searchString) => {
         return Anki.request("findNotes", {
             "query": searchString
         });
+    },
+
+    // Get note informations
+    // Takes in an array of Note IDs
+    // Returns an array of note objects
+    notesInfo: (noteIds) => {
+        return Anki.request("notesInfo", {
+            "notes": noteIds
+        })
     }
 }
 
