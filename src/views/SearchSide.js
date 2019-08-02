@@ -29,7 +29,7 @@ const DefinitionBox = ({ definition, select }) => {
 
 const SearchSide = ({ word, onChange, definition, search, select }) => {
     return (
-        <div id="card-side">
+        <div id="search-side">
             <WordEntryBox word={word} onChange={onChange} search={search} />
             <DefinitionBox definition={definition} select={select} />
         </div>
