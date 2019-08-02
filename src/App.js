@@ -69,39 +69,42 @@ function App() {
         let hasNotes = res.data.result.length;
         // If the note does exist in the database
         if (hasNotes) {
-          hasNotes = window.confirm(`${definition.term} already exists. Continue?`);
+          hasNotes = !window.confirm(`${definition.term} already exists. Continue?`);
         }
 
         if(hasNotes) {
-          console.log('has notes: abort');
-        } else {
-          console.log('no notes, continue');
+          setWord('');
+          setDefinition({
+            term: 'Definition',
+            definition: 'Please search for a Japanese term above'
+          });
+          return;
         }
-        
-      })
-    // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
-    // saves an array of them to state as 
-    axios
-      .post(Anki, {
-        "action": "findNotes",
-        "version": 6,
-        "params": {
-            "query": "deck:'" + DECK_IDS.subs +"' " + definition.term
-        }
-      })
-      .then(res => {
+
+        // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
+        // saves an array of them to state as 
         axios
-          .post(Anki, {
-            "action": "notesInfo",
-            "version": 6,
-            "params": {
-                "notes": res.data.result
-            }
-          })
-          .then(res => {
-            console.log(res.data.result);
-            setNotes(res.data.result);
-          })
+        .post(Anki, {
+          "action": "findNotes",
+          "version": 6,
+          "params": {
+              "query": "deck:'" + DECK_IDS.subs +"' " + definition.term
+          }
+        })
+        .then(res => {
+          axios
+            .post(Anki, {
+              "action": "notesInfo",
+              "version": 6,
+              "params": {
+                  "notes": res.data.result
+              }
+            })
+            .then(res => {
+              console.log(res.data.result);
+              setNotes(res.data.result);
+            })
+        })    
       })
   }
 
