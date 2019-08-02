@@ -2,7 +2,7 @@ import React from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-const ResultSide = ({ notes, idx, changeIndex }) => {
+const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
     const sentence = notes[idx].fields.Sentence.value;
     const english = notes[idx].fields.English.value;
     const tags = notes[idx].tags.join(', ');
@@ -18,7 +18,8 @@ const ResultSide = ({ notes, idx, changeIndex }) => {
                 <Input text={idx + 1} onChange={() => console.log('update the idx')} />
                 <Button onClick={() => changeIndex('up')} text=">" />
             </div>
-        </div>
+            <Button onClick={() => addCard()} text="add card" />
+         </div>
     )
 }
 

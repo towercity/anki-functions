@@ -108,6 +108,10 @@ function App() {
       })
   }
 
+  const addCard = () => {
+    console.log('add');
+  }
+
   const handleWordChange = (e) => {
     setWord(e.target.value);
   }
@@ -142,6 +146,7 @@ function App() {
         notes={notes} 
         idx={notesIdx}
         changeIndex={changeIndex}
+        addCard={addCard}
       />
     </div>
   )
