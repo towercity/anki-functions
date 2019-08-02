@@ -3,6 +3,7 @@ import jishoApi from 'unofficial-jisho-api';
 import axios from 'axios';
 
 import './App.css';
+import Anki from './services/Anki'
 import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
@@ -109,7 +110,11 @@ function App() {
   }
 
   const addCard = () => {
-    console.log('add');
+    Anki
+      .findNote("事")
+      .then(res => {
+        console.log(res.data.result);
+      });
   }
 
   const handleWordChange = (e) => {
