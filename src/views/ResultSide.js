@@ -12,7 +12,7 @@ const ResultSide = ({ notes, idx, changeIndex }) => {
             <h2>Sentence</h2>
             <p>{sentence}</p>
             <p>{english}</p>
-            <p class="tags">Tags: {tags}</p>
+            <p className="tags">Tags: {tags}</p>
             <div id="sent-change-buttons">
                 <Button onClick={() => changeIndex('down')} text="<" />
                 <Input text={idx + 1} onChange={() => console.log('update the idx')} />
