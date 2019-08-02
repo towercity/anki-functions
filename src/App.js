@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import jishoApi from 'unofficial-jisho-api';
+import axios from 'axios';
 
 import './App.css';
 import CardSide from './views/CardSide';
 import ResultSide from './views/ResultSide';
+
+const SUBS_ID = 1558903427484;
 
 function App() {
   const [word, setWord] = useState('言葉');
@@ -35,6 +38,15 @@ function App() {
 
   const selectWord = () => {
     console.log(definition.term);
+
+    axios
+      .post('http://127.0.0.1:8765', {
+        "action": "deckNamesAndIds",
+        "version": 6
+      })
+      .then(res => {
+        console.log(res.data);
+      })
   }
 
   const handleWordChange = (e) => {
