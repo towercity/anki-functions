@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import jishoApi from 'unofficial-jisho-api';
-import axios from 'axios';
 
 import './App.css';
 import Anki from './services/Anki'
@@ -52,22 +51,14 @@ function App() {
   }
 
   const selectWord = () => {
-    const Anki = 'http://127.0.0.1:8765';
-
     //Return the index to 0
     setNotesIdx(0);
 
-    // TODO: externalize this axios logic
+    Anki
+      .findNotes("Vocabulary:" + definition.term)
+      .then(res => {
+        let hasNotes = res.length;
 
-    axios
-      .post(Anki, {
-        "action": "findNotes",
-        "version": 6,
-        "params": {
-          "query": "Vocabulary:" + definition.term
-        }
-      }).then(res => {
-        let hasNotes = res.data.result.length;
         // If the note does exist in the database
         if (hasNotes) {
           hasNotes = !window.confirm(`${definition.term} already exists. Continue?`);
@@ -83,35 +74,23 @@ function App() {
         }
 
         // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
-        // saves an array of them to state as 
-        axios
-        .post(Anki, {
-          "action": "findNotes",
-          "version": 6,
-          "params": {
-              "query": "deck:'" + DECK_IDS.subs +"' " + definition.term
-          }
-        })
-        .then(res => {
-          axios
-            .post(Anki, {
-              "action": "notesInfo",
-              "version": 6,
-              "params": {
-                  "notes": res.data.result
-              }
-            })
-            .then(res => {
-              console.log(res.data.result);
-              setNotes(res.data.result);
-            })
-        })    
+        // saves an array of them to state as notes
+        Anki
+          .findNotes("deck:'" + DECK_IDS.subs +"' " + definition.term)
+          .then(res => {
+            Anki
+              .notesInfo(res)
+              .then(res => {
+                console.log(res);
+                setNotes(res);
+              })
+          })
       })
   }
 
   const addCard = () => {
     Anki
-      .findNote("事")
+      .findNotes("事")
       .then(res => {
         console.log(res);
       });
