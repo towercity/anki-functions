@@ -27,7 +27,7 @@ const DefinitionBox = ({ definition, select }) => {
     )
 }
 
-const CardSide = ({ word, onChange, definition, search, select }) => {
+const SearchSide = ({ word, onChange, definition, search, select }) => {
     return (
         <div id="card-side">
             <WordEntryBox word={word} onChange={onChange} search={search} />
@@ -36,4 +36,4 @@ const CardSide = ({ word, onChange, definition, search, select }) => {
     )
 }
 
-export default CardSide;
+export default SearchSide;

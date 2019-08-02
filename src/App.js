@@ -3,7 +3,7 @@ import jishoApi from 'unofficial-jisho-api';
 import axios from 'axios';
 
 import './App.css';
-import CardSide from './views/CardSide';
+import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
 
@@ -77,7 +77,7 @@ function App() {
 
   return (
     <div>
-      <CardSide 
+      <SearchSide 
         word={word} 
         definition={definition} 
         onChange={(e) => handleWordChange(e)} 
