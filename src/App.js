@@ -6,7 +6,6 @@ import './App.css';
 import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
-import { networkInterfaces } from 'os';
 
 function App() {
   const [word, setWord] = useState('言葉');
@@ -98,7 +97,7 @@ function App() {
     // This half decreases the index until 0, at which point it starts over at the end of the array
     } else if (direction === 'down' && notesIdx > 0) {
       setNotesIdx(notesIdx - 1);
-    } else if (direction === 'down' && notesIdx == 0) {
+    } else if (direction === 'down' && notesIdx === 0) {
       setNotesIdx(notes.length - 1);
     }
   }
