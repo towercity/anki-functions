@@ -17,7 +17,7 @@ const Anki = {
 
     // Searches for notes
     // Takes in a search string and a callback function
-    // Returns 
+    // Returns array of note ids
     findNote: (searchString) => {
         return Anki.request("findNotes", {
             "query": searchString
