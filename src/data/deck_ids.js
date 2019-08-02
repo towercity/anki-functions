@@ -1,7 +1,7 @@
 const DECK_IDS = {
-    subs: 1558903427484,
-    listening: 1552057366204, 
-    other: 1552057382923
+    subs: "All::08 - subs_bank",
+    listening: "All::01 - 日本語::01 - Listening", 
+    other: "All::01 - 日本語::02 - Other"
 }
 
 export default DECK_IDS;
