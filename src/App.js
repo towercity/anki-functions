@@ -5,8 +5,7 @@ import axios from 'axios';
 import './App.css';
 import CardSide from './views/CardSide';
 import ResultSide from './views/ResultSide';
-
-const SUBS_ID = 1558903427484;
+import DECK_IDS from './data/deck_ids';
 
 function App() {
   const [word, setWord] = useState('言葉');
