@@ -17,10 +17,13 @@ function App() {
   const [notes, setNotes] = useState([{
     fields: {
       Sentence: {
-        value: 'JPN'
+        value: ''
       },
       English: {
-        value: 'ENG'
+        value: ''
+      },
+      Image: {
+        value: ''
       }
     }
   }]);
