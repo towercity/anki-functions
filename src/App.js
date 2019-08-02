@@ -13,6 +13,7 @@ function App() {
     term: 'Definition',
     definition: 'Please search for a Japanese term above'
   });
+  const [notes, setNotes] = useState([]);
 
   const jisho = new jishoApi();
 
@@ -36,15 +37,30 @@ function App() {
   }
 
   const selectWord = () => {
-    console.log(definition.term);
+    const Anki = 'http://127.0.0.1:8765';
 
+    // This long bit of code here pulls in all the notes it can from Anki that have the word in definition.term and 
+    // saves an array of them to state as 
     axios
-      .post('http://127.0.0.1:8765', {
-        "action": "deckNamesAndIds",
-        "version": 6
+      .post(Anki, {
+        "action": "findNotes",
+        "version": 6,
+        "params": {
+            "query": "deck:'" + DECK_IDS.subs +"' " + definition.term
+        }
       })
       .then(res => {
-        console.log(res.data);
+        axios
+          .post(Anki, {
+            "action": "notesInfo",
+            "version": 6,
+            "params": {
+                "notes": res.data.result
+            }
+          })
+          .then(res => {
+            setNotes(res.data.result);
+          })
       })
   }
 
