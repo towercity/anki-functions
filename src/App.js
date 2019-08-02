@@ -113,7 +113,7 @@ function App() {
     Anki
       .findNote("事")
       .then(res => {
-        console.log(res.data.result);
+        console.log(res);
       });
   }
 
