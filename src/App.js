@@ -6,6 +6,7 @@ import './App.css';
 import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
+import { networkInterfaces } from 'os';
 
 function App() {
   const [word, setWord] = useState('言葉');
@@ -23,6 +24,7 @@ function App() {
       }
     }
   }]);
+  const [notesIdx, setNotesIdx] = useState(0);
 
   const jisho = new jishoApi();
 
@@ -78,6 +80,23 @@ function App() {
     setWord(e.target.value);
   }
 
+  const changeIndex = (direction) => {
+    console.log(notes.length);
+    
+    // This half of the logic increases the index, unless it would overflow, in which case it starts the index over at 0
+    if(direction === 'up' && notesIdx < notes.length - 1) {
+      setNotesIdx(notesIdx + 1);
+    } else if (direction === 'up' && notesIdx >= notes.length - 1) {
+      setNotesIdx(0);
+    
+    // This half decreases the index until 0, at which point it starts over at the end of the array
+    } else if (direction === 'down' && notesIdx > 0) {
+      setNotesIdx(notesIdx - 1);
+    } else if (direction === 'down' && notesIdx == 0) {
+      setNotesIdx(notes.length - 1);
+    }
+  }
+
   return (
     <div>
       <SearchSide 
@@ -89,6 +108,8 @@ function App() {
       />
       <ResultSide 
         notes={notes} 
+        idx={notesIdx}
+        changeIndex={changeIndex}
       />
     </div>
   )
