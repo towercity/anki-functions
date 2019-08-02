@@ -13,7 +13,13 @@ function App() {
     term: 'Definition',
     definition: 'Please search for a Japanese term above'
   });
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([{
+    fields: {
+      Sentence: {
+        value: 'test'
+      }
+    }
+  }]);
 
   const jisho = new jishoApi();
 
@@ -59,6 +65,7 @@ function App() {
             }
           })
           .then(res => {
+            console.log(res.data.result);
             setNotes(res.data.result);
           })
       })
@@ -78,8 +85,7 @@ function App() {
         select={() => selectWord()}
       />
       <ResultSide 
-        // Uses definition.term for the word so as to match the definition shown rather than the search term
-        word={definition.term} 
+        sentence={notes[0].fields.Sentence.value} 
       />
     </div>
   )

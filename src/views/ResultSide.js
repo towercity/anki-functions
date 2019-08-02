@@ -3,18 +3,15 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import Textbox from '../components/Textbox';
 
-const SentenceResult = ({ sentence, idx }) => {
-    let link = 'link';
-    // TODO: save the twitter source here
+const SentenceResult = ({ sentence }) => {
 
     return(
         <div id="sentence-result">
             <h2>Sentence</h2>
-            <Textbox text={sentence} handleChange={() => console.log('this neednt change tho')} />
-            <p className="attr-text"><a href={link}>sentence source</a></p>
+            <p>{sentence}</p>
             <div id="sent-change-buttons">
                 <Button onClick={() => console.log('go back')} text="<" />
-                <Input text={idx} onChange={() => console.log('update the idx')} />
+                <Input text="0" onChange={() => console.log('update the idx')} />
                 <Button onClick={() => console.log('go fwd')} text=">" />
             </div>
         </div>
@@ -34,15 +31,11 @@ const TranslationResult = ({ sentence }) => {
     )
 }
 
-const ResultSide = ({ word }) => {
-    let sentences = [word + "_sent", "2nd sentence"];
-    let idx = 0;
-    // TODO: gather the twitter sentences here
-
+const ResultSide = ({ sentence }) => {
     return (
         <div id="result-side">
-            <SentenceResult sentence={sentences[idx]} idx={idx} />
-            <TranslationResult sentence={sentences[idx]} />
+            <SentenceResult sentence={sentence} />
+            <TranslationResult sentence={sentence} />
         </div>
     )
 }
