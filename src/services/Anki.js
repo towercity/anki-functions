@@ -31,7 +31,7 @@ const Anki = {
         return Anki.request("notesInfo", {
             "notes": noteIds
         })
-    }
+    },
 
     // Get card informations
     // Takes in an array of card IDs
