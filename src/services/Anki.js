@@ -32,6 +32,15 @@ const Anki = {
             "notes": noteIds
         })
     }
+
+    // Get card informations
+    // Takes in an array of card IDs
+    // Returns an array of card objects
+    cardsInfo: (cardIds) => {
+        return Anki.request("cardsInfo", {
+            "notes": cardIds
+        })
+    }
 }
 
 export default Anki;
