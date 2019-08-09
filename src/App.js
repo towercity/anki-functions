@@ -6,28 +6,7 @@ import Anki from './services/Anki'
 import SearchSide from './views/SearchSide';
 import ResultSide from './views/ResultSide';
 import DECK_IDS from './data/deck_ids';
-
-const defaults = {
-  word: '言葉',
-  definition: {
-    term: 'Definition',
-    definition: 'Please search for a Japanese term above'
-  },
-  notes: [{
-    fields: {
-      Sentence: {
-        value: ''
-      },
-      English: {
-        value: ''
-      },
-      Image: {
-        value: ''
-      }
-    },
-    tags: ['']
-  }]
-}
+import defaults from './data/defaults';
 
 function App() {
   const [word, setWord] = useState(defaults.word);
