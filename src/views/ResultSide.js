@@ -20,6 +20,7 @@ const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
                 <Button onClick={() => changeIndex('up')} text=">" />
             </div>
             <Button onClick={() => addCard()} text="add card" />
+            <p style={{marginBottom:0}}>Scripts</p>
             <Button onClick={() => changeSubs()} text="00change" />
          </div>
     )
