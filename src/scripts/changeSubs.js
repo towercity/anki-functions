@@ -15,7 +15,6 @@ const logResult = (...output) => {
 
 const changeSubs = () => {
     logResult('running function...');
-    let noteIds = [];
 
     logResult('gathering notes...');
     Anki
@@ -23,7 +22,7 @@ const changeSubs = () => {
         .findNotes('tag:01change is:new')
         // save the found notes to nodeIds array
         .then(res => {
-            noteIds = res;
+            const noteIds = res;
             if(noteIds.length === 0) {
                 logResult('no notes found', 'ending function', '');
                 return;
