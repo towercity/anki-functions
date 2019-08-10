@@ -40,6 +40,14 @@ const Anki = {
         return Anki.request("cardsInfo", {
             "notes": cardIds
         })
+    },
+
+    // Adds new notes to Anki
+    // Takes in an array of notes
+    addNotes: (notesArray) => {
+        return Anki.request("addNotes", {
+            "notes": notesArray
+        })
     }
 }
 
