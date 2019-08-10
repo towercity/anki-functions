@@ -105,7 +105,7 @@ const changeSubs = () => {
                         Anki
                             .deleteNotes(noteIds)
                             .then(res => {
-                                logResults(`${noteIds.length} notes deleted`)
+                                logResult(`${noteIds.length} notes deleted`)
                             })
                     })
             })
