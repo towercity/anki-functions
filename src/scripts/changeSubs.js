@@ -12,10 +12,36 @@ const logResult = (...output) => {
 }
 
 const changeSubs = () => {
-    logResult('gathering cards...');
+    logResult('running function...');
+    let noteIds = [];
+
+    logResult('gathering notes...');
     Anki
-        .findNotes('tag:00change -is:new')
-        .then(res => logResult(res))
+        // searches Anki for all new cards tagged 00change
+        .findNotes('tag:00change is:new')
+        // save the found notes to nodeIds array
+        .then(res => {
+            noteIds = res;
+            logResult(`${noteIds.length} notes gathered`, 'pulling notes information...');
+
+            // searches Anki for the notes info
+            Anki
+            .notesInfo(noteIds)
+            .then(res => {
+                res.map((note, idx) => {
+
+                    logResult(
+                        '...',
+                        `card ${idx + 1}`,
+                        `sentence: ${note.fields.Sentence.value}`,
+                        `english: ${note.fields.English.value}`,
+                        `notes: ${note.fields.Notes.value}`,
+                        `tags: ${note.tags.join(', ')}`
+                    )
+                })
+            })
+        })
+        
 }
 
 export default changeSubs;
