@@ -48,6 +48,14 @@ const Anki = {
         return Anki.request("addNotes", {
             "notes": notesArray
         })
+    },
+
+    // Deletes notes from Anki
+    // Takes in an array of Note IDs
+    deleteNotes: (noteIds) => {
+        return Anki.request("deleteNotes", {
+            "notes": noteIds
+        })
     }
 }
 
