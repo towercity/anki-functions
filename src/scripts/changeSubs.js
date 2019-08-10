@@ -91,7 +91,7 @@ const changeSubs = () => {
 
                 // Add the new notes to Anki
                 Anki
-                    .addNotes(dummyNotes)
+                    .addNotes(newNotes)
                     .then(res => {
                         logResult(
                             `${res.length} notes added`
@@ -101,10 +101,12 @@ const changeSubs = () => {
                         logResult('deck shift goes here');
 
                         // Deltes the old notes
-                        logResult(
-                            'notes',
-                            noteIds
-                        )
+                        logResult('deleting old notes...');
+                        Anki
+                            .deleteNotes(noteIds)
+                            .then(res => {
+                                logResults(`${noteIds.length} notes deleted`)
+                            })
                     })
             })
         })
