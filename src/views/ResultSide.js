@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import changeSubs from '../scripts/changeSubs';
 
 const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
     const sentence = notes[idx].fields.Sentence.value;
@@ -19,6 +20,7 @@ const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
                 <Button onClick={() => changeIndex('up')} text=">" />
             </div>
             <Button onClick={() => addCard()} text="add card" />
+            <Button onClick={() => changeSubs()} text="00change" />
          </div>
     )
 }
