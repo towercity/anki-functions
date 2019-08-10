@@ -13,6 +13,22 @@ const logResult = (...output) => {
     output.map(content => console.log(content))
 }
 
+const dummyNotes = [{
+    "deckName": DECK_IDS.subs,
+    "modelName": MODELS.japanese,
+    "fields": {
+        "Vocabulary": 'test',
+        "Vocabulary-Reading": 'test',
+        "Meaning": 'test',
+        "Sentence-1": 'test',
+        "Sentence-1-Reading": 'test',
+        "Sentence-1-English": 'test',
+        "Sentence-1-Audio": '',
+        "Sentence-1-Image": ''
+    },
+    tags: ['00change', 'marked']
+}]
+
 const changeSubs = () => {
     logResult('running function...');
 
@@ -39,7 +55,7 @@ const changeSubs = () => {
                     const newTags = note.tags.filter(tag => tag !== '00change' && tag!== '01change');
 
                     const newNote = {
-                        "deckname": DECK_IDS.subs,
+                        "deckName": DECK_IDS.subs,
                         "modelName": MODELS.japanese,
                         "fields": {
                             "Vocabulary": note.fields.Vocab.value,
@@ -72,6 +88,24 @@ const changeSubs = () => {
                     `created ${newNotes.length} new notes`,
                     'sending to Anki...'
                 )
+
+                // Add the new notes to Anki
+                Anki
+                    .addNotes(dummyNotes)
+                    .then(res => {
+                        logResult(
+                            `${res.length} notes added`
+                        )
+
+                        // TODO: run the deck fixing function here
+                        logResult('deck shift goes here');
+
+                        // Deltes the old notes
+                        logResult(
+                            'notes',
+                            noteIds
+                        )
+                    })
             })
         })
         
