@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import jishoApi from 'unofficial-jisho-api';
 
-import './App.css';
-import Anki from './services/Anki'
-import SearchSide from './views/SearchSide';
-import ResultSide from './views/ResultSide';
-import DECK_IDS from './data/deck_ids';
-import defaults from './data/defaults';
+import '../App.css';
+import Anki from '../services/Anki'
+import SearchSide from '../views/SearchSide';
+import ResultSide from '../views/ResultSide';
+import DECK_IDS from '../data/deck_ids';
+import defaults from '../data/defaults';
 
-function App() {
+function SentenceFinder () {
   const [word, setWord] = useState(defaults.word);
   const [definition, setDefinition] = useState(defaults.definition);
   const [notes, setNotes] = useState(defaults.notes);
@@ -123,4 +123,4 @@ function App() {
   )
 }
 
-export default App;
+export default SentenceFinder;
