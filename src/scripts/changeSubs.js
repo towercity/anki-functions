@@ -13,21 +13,21 @@ const logResult = (...output) => {
     output.map(content => console.log(content))
 }
 
-const dummyNotes = [{
-    "deckName": DECK_IDS.subs,
-    "modelName": MODELS.japanese,
-    "fields": {
-        "Vocabulary": 'test',
-        "Vocabulary-Reading": 'test',
-        "Meaning": 'test',
-        "Sentence-1": 'test',
-        "Sentence-1-Reading": 'test',
-        "Sentence-1-English": 'test',
-        "Sentence-1-Audio": '',
-        "Sentence-1-Image": ''
-    },
-    tags: ['00change', 'marked']
-}]
+// const dummyNotes = [{
+//     "deckName": DECK_IDS.subs,
+//     "modelName": MODELS.japanese,
+//     "fields": {
+//         "Vocabulary": 'test',
+//         "Vocabulary-Reading": 'test',
+//         "Meaning": 'test',
+//         "Sentence-1": 'test',
+//         "Sentence-1-Reading": 'test',
+//         "Sentence-1-English": 'test',
+//         "Sentence-1-Audio": '',
+//         "Sentence-1-Image": ''
+//     },
+//     tags: ['00change', 'marked']
+// }]
 
 const changeSubs = () => {
     logResult('running function...');
