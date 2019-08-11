@@ -33,15 +33,6 @@ const Anki = {
         })
     },
 
-    // Get card informations
-    // Takes in an array of card IDs
-    // Returns an array of card objects
-    cardsInfo: (cardIds) => {
-        return Anki.request("cardsInfo", {
-            "notes": cardIds
-        })
-    },
-
     // Adds new notes to Anki
     // Takes in an array of notes
     addNotes: (notesArray) => {
@@ -55,6 +46,15 @@ const Anki = {
     deleteNotes: (noteIds) => {
         return Anki.request("deleteNotes", {
             "notes": noteIds
+        })
+    },
+
+    // Get card informations
+    // Takes in an array of card IDs
+    // Returns an array of card objects
+    cardsInfo: (cardIds) => {
+        return Anki.request("cardsInfo", {
+            "notes": cardIds
         })
     }
 }
