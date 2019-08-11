@@ -24,6 +24,8 @@ function SentenceFinder () {
 
   const findDefinition = () => {
     jisho.searchForPhrase(word).then(res => {
+      console.log(res);
+
       // Get an array of strings for each sub-definition
       const subdefs = res.data[0].senses.map((sense) => {
         return sense.english_definitions.join(', ');
