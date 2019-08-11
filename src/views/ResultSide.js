@@ -2,6 +2,7 @@ import React from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import changeSubs from '../scripts/changeSubs';
+import correctDecks from '../scripts/correctDecks';
 
 const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
     const sentence = notes[idx].fields.Sentence.value;
@@ -22,6 +23,7 @@ const ResultSide = ({ notes, idx, changeIndex, addCard }) => {
             <Button onClick={() => addCard()} text="add card" />
             <p style={{marginBottom:0}}>Scripts</p>
             <Button onClick={() => changeSubs()} text="00change" />
+            <Button onClick={() => correctDecks()} text="correct decks" />
          </div>
     )
 }
