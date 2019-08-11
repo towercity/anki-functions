@@ -8,6 +8,7 @@ import MODELS from '../data/models';
 import jishoApi from 'unofficial-jisho-api';
 
 import logResult from '../scripts/logResult';
+import correctDecks from '../scripts/correctDecks';
 
 const jisho = new jishoApi();
 
@@ -33,7 +34,7 @@ const changeSubs = () => {
     logResult('gathering notes...');
     Anki
         // searches Anki for all new cards tagged 00change
-        .findNotes('tag:01change is:new')
+        .findNotes('tag:00change is:new')
         // save the found notes to nodeIds array
         .then(res => {
             const noteIds = res;
@@ -119,8 +120,8 @@ const changeSubs = () => {
                                         `${res.length} notes added`
                                     )
 
-                                    // TODO: run the deck fixing function here
-                                    logResult('deck shift goes here');
+                                    // run the deck fixing function here
+                                    correctDecks();
 
                                     // Deltes the old notes
                                     logResult('deleting old notes...');
