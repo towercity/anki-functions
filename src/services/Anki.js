@@ -49,6 +49,9 @@ const Anki = {
         })
     },
 
+    // Searches for cards
+    // Takes in a search string 
+    // Returns array of note ids
     findCards: (searchString) => {
         return Anki.request("findCards", {
             "query": searchString
