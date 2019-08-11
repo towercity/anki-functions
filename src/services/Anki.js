@@ -63,7 +63,16 @@ const Anki = {
     // Returns an array of card objects
     cardsInfo: (cardIds) => {
         return Anki.request("cardsInfo", {
-            "notes": cardIds
+            "cards": cardIds
+        })
+    },
+
+    // Move cards to a new deck
+    // Takes in an array of card IDs and the name of the new deck
+    changeDecks: (cardIds, newDeck) => {
+        return Anki.request("changeDeck", {
+            "cards": cardIds,
+            "deck": newDeck
         })
     }
 }
