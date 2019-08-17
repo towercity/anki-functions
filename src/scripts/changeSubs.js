@@ -132,7 +132,7 @@ const changeSubs = () => {
                                         })
                                 })
                             }
-                        })
+                        }).catch(err => logResult(err))
                 })
             })
         })       
