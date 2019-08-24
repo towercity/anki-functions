@@ -5,23 +5,8 @@ import '../components/ConsoleView.css';
 const ConsoleView = () => {
     return (
         <div id="console-view">
-            <p>
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
-                test text <br />
+            <p id="console-text">
+
             </p>
         </div>
     )
