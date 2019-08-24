@@ -1,0 +1,15 @@
+#console-view {
+    height: 300px;
+    width: 80vw;
+    margin: 30px auto;
+    max-width: 500px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+#console-view p {
+    padding: 15px 25px;
+    margin: 0;
+}

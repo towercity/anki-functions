@@ -5,7 +5,7 @@ import '../App.css';
 import Button from '../components/Button';
 import changeSubs from '../scripts/changeSubs';
 import correctDecks from '../scripts/correctDecks';
-// import ConsoleView from '../components/ComponentView';
+import ConsoleView from '../components/ConsoleView';
 
 const CardFunctions = () => {
     return (
@@ -14,7 +14,7 @@ const CardFunctions = () => {
             <Button onClick={() => changeSubs()} text="00change" />
             <Button onClick={() => correctDecks()} text="correct decks" />
 
-            {/* <ConsoleView /> */}
+            <ConsoleView />
          </div>
     )
 }
