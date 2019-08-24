@@ -15,6 +15,10 @@ input {
   height: 100vh;
 }
 
+#functions-view {
+  padding: 0 5vw;
+}
+
 #search-side {
   width: calc(50% - 30px);
   background-color: grey;
