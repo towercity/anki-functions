@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/anki-functions/static/css/main.46b3997b.chunk.css",
+    "main.js": "/anki-functions/static/js/main.53d82b02.chunk.js",
+    "main.js.map": "/anki-functions/static/js/main.53d82b02.chunk.js.map",
+    "runtime~main.js": "/anki-functions/static/js/runtime~main.4cfe51b4.js",
+    "runtime~main.js.map": "/anki-functions/static/js/runtime~main.4cfe51b4.js.map",
+    "static/js/2.03f08814.chunk.js": "/anki-functions/static/js/2.03f08814.chunk.js",
+    "static/js/2.03f08814.chunk.js.map": "/anki-functions/static/js/2.03f08814.chunk.js.map",
+    "index.html": "/anki-functions/index.html",
+    "precache-manifest.baad9b1684afff8e453bf2d3bc9ea71d.js": "/anki-functions/precache-manifest.baad9b1684afff8e453bf2d3bc9ea71d.js",
+    "service-worker.js": "/anki-functions/service-worker.js",
+    "static/css/main.46b3997b.chunk.css.map": "/anki-functions/static/css/main.46b3997b.chunk.css.map"
+  }
+}
