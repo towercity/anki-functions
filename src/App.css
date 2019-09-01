@@ -17,6 +17,8 @@ input {
 
 #functions-view {
   padding: 0 5vw;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 #search-side {
